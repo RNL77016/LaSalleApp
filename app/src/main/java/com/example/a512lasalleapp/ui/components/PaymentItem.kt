@@ -25,42 +25,47 @@ import com.example.a512lasalleapp.ui.utils.Check
 import com.example.a512lasalleapp.ui.utils.Cross1
 
 @Composable
-fun PaymentItem(text: String, paid: Boolean){
+fun PaymentItem(text: String, paid: Boolean, onClick: () -> Unit){
     Box(
-        modifier = Modifier
-            .size(90.dp)
-            .clip(RoundedCornerShape(16.dp))
-            .background(GrayLight),
-        contentAlignment = Alignment.Center
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
+        modifier = Modifier.padding(15.dp)
+    ){
+        Box(
+            modifier = Modifier
+                .size(90.dp)
+                .clip(RoundedCornerShape(16.dp))
+                .background(GrayLight)
+                .clickable { onClick() },
+            contentAlignment = Alignment.Center
         ) {
-            if (paid == true){
-                Icon(
-                    imageVector = Check,
-                    contentDescription = text,
-                    modifier = Modifier.size(40.dp),
-                    tint = MaterialTheme.colorScheme.primary
-                )
-            }else{
-                Icon(
-                    imageVector = Cross1,
-                    contentDescription = text,
-                    modifier = Modifier.size(40.dp),
-                    tint = MaterialTheme.colorScheme.primary
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                if (paid == true){
+                    Icon(
+                        imageVector = Check,
+                        contentDescription = text,
+                        modifier = Modifier.size(40.dp),
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                }else{
+                    Icon(
+                        imageVector = Cross1,
+                        contentDescription = text,
+                        modifier = Modifier.size(40.dp),
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                }
+
+                Text(
+                    text= text,
+                    color = MaterialTheme.colorScheme.primary,
+                    style = MaterialTheme.typography.bodySmall,
+                    fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center
                 )
             }
 
-            Text(
-                text= text,
-                color = MaterialTheme.colorScheme.primary,
-                style = MaterialTheme.typography.bodySmall,
-                fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center
-            )
         }
-
     }
 }
 
@@ -68,6 +73,6 @@ fun PaymentItem(text: String, paid: Boolean){
 @Composable
 fun PaymentItemPreview(){
     _512LaSalleAppTheme {
-        PaymentItem(text = "Inicio", true)
+        PaymentItem(text = "Primer Pago", true, onClick = {})
     }
 }
