@@ -1,19 +1,19 @@
 package com.example.a512lasalleapp.ui.screens
 
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.example.a512lasalleapp.ui.components.ClassWidget
 import com.example.a512lasalleapp.ui.components.ScreenTemplate
 import com.example.a512lasalleapp.ui.theme._512LaSalleAppTheme
@@ -21,8 +21,9 @@ import com.example.a512lasalleapp.ui.theme._512LaSalleAppTheme
 @Composable
 fun ClassDetailScreen(innerPadding : PaddingValues){
     ScreenTemplate(innerPadding = innerPadding, header = {
-        Column (
-            modifier = Modifier.padding(25.dp)
+        Box (
+            modifier = Modifier.padding(25.dp).fillMaxSize(),
+            contentAlignment = Alignment.Center
         ){
             Text(text = "Nombre de Clase",
                 fontSize = MaterialTheme.typography.titleLarge.fontSize,

@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -32,7 +33,8 @@ import com.example.a512lasalleapp.ui.utils.Password_2
 fun SettingsScreen(innerPadding : PaddingValues, navController: NavController){
     ScreenTemplate(innerPadding = innerPadding, header = {
         Row(
-            modifier = Modifier.fillMaxSize().padding(20.dp)
+            modifier = Modifier.fillMaxSize().padding(20.dp),
+            verticalAlignment = Alignment.CenterVertically
         ){
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
