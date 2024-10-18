@@ -1,10 +1,13 @@
 package com.example.a512lasalleapp.ui.screens
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,54 +33,63 @@ import com.example.a512lasalleapp.ui.utils.Dark_mode
 import com.example.a512lasalleapp.ui.utils.Password_2
 
 @Composable
-fun SettingsScreen(innerPadding : PaddingValues, navController: NavController){
+fun SettingsScreen(innerPadding: PaddingValues, navController: NavController) {
     ScreenTemplate(innerPadding = innerPadding, header = {
-        Row(
-            modifier = Modifier.fillMaxSize().padding(20.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ){
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Top
+        ) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
                     .placeholder(R.drawable.profile_picture)
                     .data(R.drawable.profile_picture)
                     .build(),
                 contentDescription = "Selene Delgado",
-                modifier = Modifier.size(100.dp).clip(RoundedCornerShape(50)),
+                modifier = Modifier
+                    .size(100.dp)
+                    .clip(RoundedCornerShape(50)),
                 contentScale = ContentScale.Crop
             )
-            Column (
-                modifier = Modifier.padding(start = 15.dp)
-            ){
-                Text(text = "Ronaldo Nunez Laguna",
-                    fontSize = MaterialTheme.typography.titleLarge.fontSize,
-                    fontWeight = MaterialTheme.typography.titleMedium.fontWeight,
-                    color = Color.White,
-                    modifier = Modifier.padding(bottom = 5.dp))
-                Text(text = "Fecha de Nacimiento: 10 - 17 - 2004",
-                    fontSize = MaterialTheme.typography.bodySmall.fontSize,
-                    fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
-                    color = Color.White)
-                Text(text = "rnl77016@lasallebajio.edu.mx",
-                    fontSize = MaterialTheme.typography.bodySmall.fontSize,
-                    fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
-                    color = Color.White)
-            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                text = "Ronaldo Nunez Laguna",
+                fontSize = MaterialTheme.typography.titleLarge.fontSize,
+                fontWeight = MaterialTheme.typography.titleMedium.fontWeight,
+                color = Color.White,
+                modifier = Modifier.padding(bottom = 5.dp)
+            )
+            Text(
+                text = "Fecha de Nacimiento: 10 - 17 - 2004",
+                fontSize = MaterialTheme.typography.bodySmall.fontSize,
+                fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
+                color = Color.White,
+                modifier = Modifier.padding(bottom = 5.dp)
+            )
+            Text(
+                text = "rnl77016@lasallebajio.edu.mx",
+                fontSize = MaterialTheme.typography.bodySmall.fontSize,
+                fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
+                color = Color.White
+            )
         }
     }, body = {
-        Row (
+        Row(
             modifier = Modifier.fillMaxWidth().padding(15.dp),
             horizontalArrangement = androidx.compose.foundation.layout.Arrangement.SpaceEvenly
-        ){
-            Widget(Password_2, "Cambiar Contraseña", onClick = {navController.navigate("change-password")})
-            Widget(Dark_mode, "Cambiar Tema", onClick = {navController.navigate("change-theme")})
+        ) {
+            Widget(Password_2, "Cambiar Contraseña", onClick = { navController.navigate("change-password") })
+            Widget(Dark_mode, "Cambiar Tema", onClick = { navController.navigate("change-theme") })
         }
     })
 }
 
 @Preview
 @Composable
-fun SettingsScreenPreview(){
-    _512LaSalleAppTheme{
+fun SettingsScreenPreview() {
+    _512LaSalleAppTheme {
         SettingsScreen(innerPadding = PaddingValues(), navController = NavController(LocalContext.current))
     }
 }

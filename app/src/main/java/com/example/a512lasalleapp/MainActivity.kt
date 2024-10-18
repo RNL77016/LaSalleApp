@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -138,7 +139,7 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(
                             route = Screens.ClassDetail.route + "/{idmateria}",
-                            arguments = listOf(navArgument("idmateria") {type = NavType.StringType}))
+                            arguments = listOf(navArgument("idmateria") {type = NavType.IntType}))
                         { backStackEntry ->
                             val idmateria = backStackEntry.arguments?.getInt("idmateria") ?: 0
                             val materia = materias.find { it.id == idmateria }
@@ -150,7 +151,7 @@ class MainActivity : ComponentActivity() {
 
                         }
                         composable(route = Screens.Payments.route) {
-                            PaymentsScreen(innerPadding = innerPadding)
+                            PaymentsScreen(innerPadding = innerPadding, navController = navController)
                         }
                     }
 

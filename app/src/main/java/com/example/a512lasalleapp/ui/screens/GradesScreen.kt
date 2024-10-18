@@ -1,9 +1,9 @@
 package com.example.a512lasalleapp.ui.screens
 
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -29,17 +29,19 @@ import com.example.a512lasalleapp.R
 import com.example.a512lasalleapp.ui.components.ClassWidget
 import com.example.a512lasalleapp.ui.components.ScreenTemplate
 import com.example.a512lasalleapp.ui.theme._512LaSalleAppTheme
+import com.example.a512lasalleapp.ui.utils.Screens
 import com.example.a512lasalleapp.ui.utils.materias
 
 @Composable
 fun GradesScreen(innerPadding: PaddingValues, navController: NavController) {
     ScreenTemplate(innerPadding = innerPadding, header = {
-        Row (
+        Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(20.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ){
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Top
+        ) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
                     .placeholder(R.drawable.profile_picture)
@@ -51,39 +53,49 @@ fun GradesScreen(innerPadding: PaddingValues, navController: NavController) {
                     .clip(RoundedCornerShape(50)),
                 contentScale = ContentScale.Crop
             )
-            Column (
-                modifier = Modifier.padding(25.dp),
-            ){
-                Text(text = "Ronaldo Nunez Laguna",
-                    fontSize = MaterialTheme.typography.titleLarge.fontSize,
-                    fontWeight = MaterialTheme.typography.titleMedium.fontWeight,
-                    color = Color.White,
-                    modifier = Modifier.padding(bottom = 5.dp))
-                Text(text = "Carrera: Ingenieria en Software y Sistemas Computacionales",
-                    fontSize = MaterialTheme.typography.bodySmall.fontSize,
-                    fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
-                    color = Color.White)
-                Text(text = "Semestre: 5",
-                    fontSize = MaterialTheme.typography.bodySmall.fontSize,
-                    fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
-                    color = Color.White)
-                Text(text = "Promedio: 9.0",
-                    fontSize = MaterialTheme.typography.bodySmall.fontSize,
-                    fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
-                    color = Color.White)
-            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                text = "Ronaldo Nunez Laguna",
+                fontSize = MaterialTheme.typography.titleLarge.fontSize,
+                fontWeight = MaterialTheme.typography.titleMedium.fontWeight,
+                color = Color.White,
+                modifier = Modifier.padding(bottom = 5.dp)
+            )
+            Text(
+                text = "Ingenieria en Software y Sistemas Computacionales",
+                fontSize = MaterialTheme.typography.bodySmall.fontSize,
+                fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
+                color = Color.White,
+                modifier = Modifier.padding(bottom = 5.dp)
+            )
+            Text(
+                text = "Semestre: 5",
+                fontSize = MaterialTheme.typography.bodySmall.fontSize,
+                fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
+                color = Color.White,
+                modifier = Modifier.padding(bottom = 5.dp)
+            )
+            Text(
+                text = "Promedio: 9.0",
+                fontSize = MaterialTheme.typography.bodySmall.fontSize,
+                fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
+                color = Color.White
+            )
         }
     }, body = {
-        LazyColumn (
+        LazyColumn(
             modifier = Modifier
                 .height(300.dp)
                 .padding(10.dp)
-        ){
+        ) {
             itemsIndexed(materias) { index, materia ->
                 ClassWidget(
                     materias[index].nombre,
                     grade = "9.0",
-                    onClick = {navController.navigate("class-detail/${materias[index]}")})
+                    onClick = {
+                        navController.navigate("${Screens.ClassDetail.route}/${materias[index].id}")
+                    }
+                )
             }
         }
     })

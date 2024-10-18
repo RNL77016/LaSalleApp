@@ -33,7 +33,7 @@ fun CalendarScreen(innerPadding: PaddingValues) {
             )
             Text(
                 modifier = Modifier.padding(top = 10.dp),
-                text = "Enero",
+                text = "Octubre",
                 color = Color.White,
                 style = MaterialTheme.typography.titleLarge
             )
@@ -42,8 +42,8 @@ fun CalendarScreen(innerPadding: PaddingValues) {
                     .fillMaxWidth()
                     .padding(top = 5.dp)
             ) {
-                items(31){
-                    DayItem()
+                items(31){ index ->
+                    DayItem(dayNumber = index + 1)
                 }
             }
         }

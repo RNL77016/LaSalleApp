@@ -14,10 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.a512lasalleapp.ui.theme.GrayLight
+import com.example.a512lasalleapp.ui.theme.BlueDark
 import com.example.a512lasalleapp.ui.theme._512LaSalleAppTheme
 
 @Composable
@@ -32,18 +31,18 @@ fun ClassWidget(text: String, grade: String, onClick : () -> Unit = {}){
             modifier = Modifier.fillMaxWidth()
                 .padding(10.dp)
                 .clip(RoundedCornerShape(50.dp))
-                .background(Color.White),
+                .background(BlueDark),
         ) {
             Text(
                 text= text,
-                color = MaterialTheme.colorScheme.primary,
+                color = Color.White,
                 style = MaterialTheme.typography.bodySmall,
                 fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
                 modifier = Modifier.padding(start = 20.dp, top = 5.dp, bottom = 5.dp)
             )
             Text(
                 text= grade,
-                color = MaterialTheme.colorScheme.primary,
+                color = Color.White,
                 style = MaterialTheme.typography.bodySmall,
                 fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
                 modifier = Modifier.padding(end = 20.dp, top = 5.dp, bottom = 5.dp),
