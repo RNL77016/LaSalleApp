@@ -22,8 +22,8 @@ fun NewsDetailScreen(newsId:Int,innerPadding : PaddingValues){
 
     Column(
         modifier = Modifier
-        .padding(innerPadding)
-        .fillMaxSize(),
+            .padding(innerPadding)
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         AsyncImage(

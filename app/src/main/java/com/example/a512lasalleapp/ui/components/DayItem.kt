@@ -44,3 +44,4 @@ fun DayItem(dayNumber: Int){
 fun DayItemPreview(){
     DayItem(dayNumber = 1)
 }
+
