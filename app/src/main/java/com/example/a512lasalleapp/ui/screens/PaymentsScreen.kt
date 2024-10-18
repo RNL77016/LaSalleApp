@@ -135,8 +135,9 @@ fun PaymentsScreen(innerPadding: PaddingValues, navController: NavController) {
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             item {
-                PaymentItem(text = "Septiembre", true, onClick = {})
+                PaymentItem(text = "Reinscripcion", true, onClick = {})
                 PaymentItem(text = "Agosto", true, onClick = {})
+                PaymentItem(text = "Septiembre", true, onClick = {})
             }
         }
     }

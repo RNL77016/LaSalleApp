@@ -44,8 +44,8 @@ fun GradesScreen(innerPadding: PaddingValues, navController: NavController) {
         ) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .placeholder(R.drawable.profile_picture)
-                    .data(R.drawable.profile_picture)
+                    .placeholder(R.drawable.calamardo)
+                    .data(R.drawable.calamardo)
                     .build(),
                 contentDescription = "Selene Delgado",
                 modifier = Modifier

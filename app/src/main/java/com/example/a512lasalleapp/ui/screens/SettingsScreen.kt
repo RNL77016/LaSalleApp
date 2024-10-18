@@ -44,8 +44,8 @@ fun SettingsScreen(innerPadding: PaddingValues, navController: NavController) {
         ) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .placeholder(R.drawable.profile_picture)
-                    .data(R.drawable.profile_picture)
+                    .placeholder(R.drawable.calamardo)
+                    .data(R.drawable.calamardo)
                     .build(),
                 contentDescription = "Selene Delgado",
                 modifier = Modifier
@@ -62,7 +62,7 @@ fun SettingsScreen(innerPadding: PaddingValues, navController: NavController) {
                 modifier = Modifier.padding(bottom = 5.dp)
             )
             Text(
-                text = "Fecha de Nacimiento: 10 - 17 - 2004",
+                text = "Fecha de Nacimiento: 10 - 17 - 2003",
                 fontSize = MaterialTheme.typography.bodySmall.fontSize,
                 fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
                 color = Color.White,

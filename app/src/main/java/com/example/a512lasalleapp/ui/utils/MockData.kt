@@ -63,10 +63,10 @@ val communities = listOf(
 )
 
 val materias = listOf(
-    Materia(0,"Conmutacion en Redes de Area Local"),
-    Materia(1,"Administracion de Proyectos Tecnologicos"),
-    Materia(2,"Administracion de Bases de Datos"),
+    Materia(0,"Redes de Area Local"),
+    Materia(1,"Proyectos Tecnologicos"),
+    Materia(2,"Bases de Datos"),
     Materia(3,"Metodologia de la Investigacion"),
     Materia(4,"Cristianismo"),
-    Materia(5,"Modelado y Procesamiento de Imagenes")
+    Materia(5,"Procesamiento de Imagenes")
 )

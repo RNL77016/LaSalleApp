@@ -2,6 +2,7 @@ package com.example.a512lasalleapp.ui.screens
 
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -22,23 +23,38 @@ import com.example.a512lasalleapp.ui.theme._512LaSalleAppTheme
 import com.example.a512lasalleapp.ui.utils.materias
 
 @Composable
-fun ClassDetailScreen(innerPadding : PaddingValues, materia: Materia){
+fun ClassDetailScreen(innerPadding: PaddingValues, materia: Materia) {
     ScreenTemplate(innerPadding = innerPadding, header = {
-        Box (
-            modifier = Modifier.padding(25.dp).fillMaxSize(),
+        Box(
+            modifier = Modifier
+                .padding(25.dp)
+                .fillMaxSize(),
             contentAlignment = Alignment.Center
-        ){
-            Text(text = materia.nombre,
-                fontSize = MaterialTheme.typography.titleLarge.fontSize,
-                fontWeight = MaterialTheme.typography.titleMedium.fontWeight,
-                color = Color.White,
-                modifier = Modifier.padding(bottom = 5.dp))
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = materia.nombre,
+                    fontSize = MaterialTheme.typography.titleLarge.fontSize,
+                    fontWeight = MaterialTheme.typography.titleMedium.fontWeight,
+                    color = Color.White,
+                    modifier = Modifier.padding(bottom = 5.dp)
+                )
+                Text(
+                    text = "Promedio: ${9.0}",
+                    fontSize = MaterialTheme.typography.titleMedium.fontSize,
+                    fontWeight = MaterialTheme.typography.titleSmall.fontWeight,
+                    color = Color.White,
+                    modifier = Modifier.padding(top = 5.dp)
+                )
+            }
         }
     }, body = {
-        LazyColumn (
-            modifier = Modifier.height(300.dp).padding(10.dp)
-        ){
-            item() {
+        LazyColumn(
+            modifier = Modifier
+                .height(300.dp)
+                .padding(10.dp)
+        ) {
+            item {
                 ClassWidget(text = "Parcial 1", grade = "9.0", onClick = {})
                 ClassWidget(text = "Parcial 2", grade = "9.0", onClick = {})
                 ClassWidget(text = "Parcial 3", grade = "9.0", onClick = {})
