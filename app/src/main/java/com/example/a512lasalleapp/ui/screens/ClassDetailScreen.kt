@@ -1,6 +1,7 @@
 package com.example.a512lasalleapp.ui.screens
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -27,11 +28,22 @@ fun ClassDetailScreen(innerPadding : PaddingValues, materia: Materia){
             modifier = Modifier.padding(25.dp).fillMaxSize(),
             contentAlignment = Alignment.Center
         ){
-            Text(text = materia.nombre,
-                fontSize = MaterialTheme.typography.titleLarge.fontSize,
-                fontWeight = MaterialTheme.typography.titleMedium.fontWeight,
-                color = Color.White,
-                modifier = Modifier.padding(bottom = 5.dp))
+            Column (
+                horizontalAlignment = Alignment.CenterHorizontally
+            ){
+                Text(text = materia.nombre,
+                    fontSize = MaterialTheme.typography.titleLarge.fontSize,
+                    fontWeight = MaterialTheme.typography.titleMedium.fontWeight,
+                    color = Color.White,
+                    modifier = Modifier.padding(bottom = 15.dp),
+                    style = MaterialTheme.typography.titleLarge.copy(textAlign = androidx.compose.ui.text.style.TextAlign.Center))
+
+                Text(text = "9.0",
+                    fontSize = MaterialTheme.typography.titleLarge.fontSize,
+                    fontWeight = MaterialTheme.typography.titleMedium.fontWeight,
+                    color = Color.White,
+                    modifier = Modifier.padding(bottom = 5.dp))
+            }
         }
     }, body = {
         LazyColumn (
