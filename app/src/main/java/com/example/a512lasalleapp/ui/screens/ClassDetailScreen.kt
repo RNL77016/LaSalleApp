@@ -14,18 +14,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.a512lasalleapp.models.Materia
 import com.example.a512lasalleapp.ui.components.ClassWidget
 import com.example.a512lasalleapp.ui.components.ScreenTemplate
 import com.example.a512lasalleapp.ui.theme._512LaSalleAppTheme
+import com.example.a512lasalleapp.ui.utils.materias
 
 @Composable
-fun ClassDetailScreen(innerPadding : PaddingValues){
+fun ClassDetailScreen(innerPadding : PaddingValues, materia: Materia){
     ScreenTemplate(innerPadding = innerPadding, header = {
         Box (
             modifier = Modifier.padding(25.dp).fillMaxSize(),
             contentAlignment = Alignment.Center
         ){
-            Text(text = "Nombre de Clase",
+            Text(text = materia.nombre,
                 fontSize = MaterialTheme.typography.titleLarge.fontSize,
                 fontWeight = MaterialTheme.typography.titleMedium.fontWeight,
                 color = Color.White,
@@ -48,6 +50,6 @@ fun ClassDetailScreen(innerPadding : PaddingValues){
 @Composable
 fun ClassDetailScreenPreview() {
     _512LaSalleAppTheme {
-        ClassDetailScreen(innerPadding = PaddingValues())
+        ClassDetailScreen(innerPadding = PaddingValues(), materias[0])
     }
 }

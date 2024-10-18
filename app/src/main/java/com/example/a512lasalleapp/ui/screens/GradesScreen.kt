@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -28,12 +29,15 @@ import com.example.a512lasalleapp.R
 import com.example.a512lasalleapp.ui.components.ClassWidget
 import com.example.a512lasalleapp.ui.components.ScreenTemplate
 import com.example.a512lasalleapp.ui.theme._512LaSalleAppTheme
+import com.example.a512lasalleapp.ui.utils.materias
 
 @Composable
 fun GradesScreen(innerPadding: PaddingValues, navController: NavController) {
     ScreenTemplate(innerPadding = innerPadding, header = {
         Row (
-            modifier = Modifier.fillMaxSize().padding(20.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(20.dp),
             verticalAlignment = Alignment.CenterVertically
         ){
             AsyncImage(
@@ -42,7 +46,9 @@ fun GradesScreen(innerPadding: PaddingValues, navController: NavController) {
                     .data(R.drawable.profile_picture)
                     .build(),
                 contentDescription = "Selene Delgado",
-                modifier = Modifier.size(100.dp).clip(RoundedCornerShape(50)),
+                modifier = Modifier
+                    .size(100.dp)
+                    .clip(RoundedCornerShape(50)),
                 contentScale = ContentScale.Crop
             )
             Column (
@@ -61,7 +67,7 @@ fun GradesScreen(innerPadding: PaddingValues, navController: NavController) {
                     fontSize = MaterialTheme.typography.bodySmall.fontSize,
                     fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
                     color = Color.White)
-                Text(text = "Promedio: 9.4",
+                Text(text = "Promedio: 9.0",
                     fontSize = MaterialTheme.typography.bodySmall.fontSize,
                     fontWeight = MaterialTheme.typography.bodySmall.fontWeight,
                     color = Color.White)
@@ -69,10 +75,15 @@ fun GradesScreen(innerPadding: PaddingValues, navController: NavController) {
         }
     }, body = {
         LazyColumn (
-            modifier = Modifier.height(300.dp).padding(10.dp),
+            modifier = Modifier
+                .height(300.dp)
+                .padding(10.dp)
         ){
-            items(7) {
-                ClassWidget(text = "Clase", grade = "9.0", onClick = {navController.navigate("class-detail")})
+            itemsIndexed(materias) { index, materia ->
+                ClassWidget(
+                    materias[index].nombre,
+                    grade = "9.0",
+                    onClick = {navController.navigate("class-detail/${materias[index]}")})
             }
         }
     })

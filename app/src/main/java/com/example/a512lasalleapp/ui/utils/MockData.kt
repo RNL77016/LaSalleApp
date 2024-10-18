@@ -7,6 +7,7 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
 import com.example.a512lasalleapp.models.BottomNavigationItem
 import com.example.a512lasalleapp.models.Community
+import com.example.a512lasalleapp.models.Materia
 import com.example.a512lasalleapp.models.News
 
 val newsList = listOf(
@@ -59,4 +60,13 @@ val communities = listOf(
     Community(3,"https://www.lasallebajio.edu.mx/comunidad/images/tile_cat_souv_22.jpg  "),
     Community(4,"https://www.lasallebajio.edu.mx/comunidad/images/tile_tramites.jpg"),
     Community(5,"https://www.lasallebajio.edu.mx/comunidad/images/tile_blog.jpg"),
+)
+
+val materias = listOf(
+    Materia(0,"Conmutacion en Redes de Area Local"),
+    Materia(1,"Administracion de Proyectos Tecnologicos"),
+    Materia(2,"Administracion de Bases de Datos"),
+    Materia(3,"Metodologia de la Investigacion"),
+    Materia(4,"Cristianismo"),
+    Materia(5,"Modelado y Procesamiento de Imagenes")
 )

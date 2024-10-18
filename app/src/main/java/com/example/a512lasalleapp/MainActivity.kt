@@ -40,6 +40,7 @@ import com.example.a512lasalleapp.ui.screens.SettingsScreen
 import com.example.a512lasalleapp.ui.theme._512LaSalleAppTheme
 import com.example.a512lasalleapp.ui.utils.Screens
 import com.example.a512lasalleapp.ui.utils.bottomNavBarItems
+import com.example.a512lasalleapp.ui.utils.materias
 import com.exyte.animatednavbar.AnimatedNavigationBar
 import com.exyte.animatednavbar.animation.indendshape.shapeCornerRadius
 
@@ -135,8 +136,18 @@ class MainActivity : ComponentActivity() {
                         composable(route = Screens.ChangeTheme.route) {
                             ChangeThemeScreen(innerPadding = innerPadding)
                         }
-                        composable(route = Screens.ClassDetail.route) {
-                            ClassDetailScreen(innerPadding = innerPadding)
+                        composable(
+                            route = Screens.ClassDetail.route + "/{idmateria}",
+                            arguments = listOf(navArgument("idmateria") {type = NavType.StringType}))
+                        { backStackEntry ->
+                            val idmateria = backStackEntry.arguments?.getInt("idmateria") ?: 0
+                            val materia = materias.find { it.id == idmateria }
+                            if (materia != null){
+                                ClassDetailScreen(innerPadding = innerPadding, materia = materia)
+                            }else{
+                                Text("Materia no encontrada")
+                            }
+
                         }
                         composable(route = Screens.Payments.route) {
                             PaymentsScreen(innerPadding = innerPadding)

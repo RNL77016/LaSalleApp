@@ -40,9 +40,9 @@ fun PaymentsScreen(innerPadding: PaddingValues){
             horizontalArrangement = Arrangement.SpaceEvenly
         ){
             item(){
-                PaymentItem(text = "Tercer Pago", false, onClick = {})
-                PaymentItem(text = "Cuarto Pago", false, onClick = {})
-                PaymentItem(text = "Quinto Pago", false, onClick = {})
+                PaymentItem(text = "Octubre", false, onClick = {})
+                PaymentItem(text = "Noviembre", false, onClick = {})
+                PaymentItem(text = "Diciembre", false, onClick = {})
             }
         }
 
@@ -58,8 +58,8 @@ fun PaymentsScreen(innerPadding: PaddingValues){
             horizontalArrangement = Arrangement.SpaceEvenly
         ){
             item(){
-                PaymentItem(text = "Primer Pago", true, onClick = {})
-                PaymentItem(text = "Segundo Pago", true, onClick = {})
+                PaymentItem(text = "Septiembre", true, onClick = {})
+                PaymentItem(text = "Agosto", true, onClick = {})
             }
         }
     }
